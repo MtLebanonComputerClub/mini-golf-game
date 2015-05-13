@@ -1,0 +1,9 @@
+public IIPhys{
+  public int roll(Ball b, Surface s){
+    int output=s.getFriction()*t*t+b.getVelocity()*t+b.getX();//I'm not sure what t will be. 
+    return output;//returns the new x position.
+  }
+  public int collide(Ball b, Obstical o){//s=speed lost from collision
+    int output=
+  }
+}
