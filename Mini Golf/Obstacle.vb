@@ -26,3 +26,11 @@
         Next
     End Sub
 End Class
+
+Public Class CircularObstacle
+    Inherits Obstacle
+
+    Public Sub New(position As Point, size As Size) 'For the future, disregard this for the time being
+        MyBase.New(position, size)
+    End Sub
+End Class
