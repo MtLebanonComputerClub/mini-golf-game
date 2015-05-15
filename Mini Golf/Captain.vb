@@ -6,7 +6,7 @@
 
     Dim path As ArrayList
 
-    Public Sub findNear(ball As Ball)
+    Public Sub findNear(ball As Label)
         'Check all surroudings and call proper physics functions
         'Split into separate functions that find the nearest walls, surfaces, and holes
     End Sub
