@@ -69,7 +69,7 @@ Public Class Hole
     End Sub
 End Class
 
-Public Class Ball 'The class for the golf ball
+Public Class Ball 'The class for the golf ball (yeah)
     Inherits Course_Item
     Dim player As String
     Dim player_number As Integer
