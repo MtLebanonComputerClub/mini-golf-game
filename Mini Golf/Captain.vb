@@ -1,8 +1,8 @@
 ﻿Public Class Captain
-    Private Property balls As ArrayList
-    Private Property walls As ArrayList
-    Private Property surfaces As ArrayList
-    Private Property holes As ArrayList
+    Private Property balls As ArrayList 'The list that contains all the balls
+    Private Property walls As ArrayList 'Contains all the walls (regular obstacles)
+    Private Property surfaces As ArrayList 'Contains all the surfaces
+    Private Property holes As ArrayList 'Contains all the holes
 
     Dim path As ArrayList
 
