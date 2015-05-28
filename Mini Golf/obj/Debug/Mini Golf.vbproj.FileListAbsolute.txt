@@ -1,0 +1,10 @@
+E:\CodingCollab\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.exe.config
+E:\CodingCollab\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.exe
+E:\CodingCollab\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.pdb
+E:\CodingCollab\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.xml
+E:\CodingCollab\mini-golf-game\Mini Golf\obj\Debug\Mini_Golf.MiniGolf.resources
+E:\CodingCollab\mini-golf-game\Mini Golf\obj\Debug\Mini_Golf.Resources.resources
+E:\CodingCollab\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.vbproj.GenerateResource.Cache
+E:\CodingCollab\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.exe
+E:\CodingCollab\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.xml
+E:\CodingCollab\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.pdb
