@@ -32,7 +32,7 @@
         Inherits Course_Item
         Dim bouciness As Decimal 'Maybe use this value later
         Dim soundFilePath As String 'The path of the sound file to be played when the ball hits the obstacle
-
+        Public angle As Double                                                                                                                                    'NEED THIS, make getter method later
         Public Sub New(position As Point, size As Size)
             MyBase.New(position, size)
         End Sub
@@ -74,18 +74,22 @@
         Inherits Course_Item
         Dim player As String
         Dim player_number As Integer
-        Public history As Array 'NEEDED THIS
+        Public historyX As Array                                                                                                                                'NEED THESE
+        Public historyY As Array
 
-        Public Sub New(position As Point, size As Size, history As Array)
+        Public Sub New(position As Point, size As Size, historyX As Array, historyY As Array)
             MyBase.New(position, size)
-            Me.history = history
+            Me.historyX = historyX
+            Me.historyY = historyY
         End Sub
 
     End Class
-    Public Class Surface    'NEEDED THIS
+    Public Class Surface                                                                                                                                        'NEED THIS
         Inherits Course_Item
-        Public Sub New(position As Point, size As Size)
+        Public friction As Integer
+        Public Sub New(position As Point, size As Size, friction As Integer)
             MyBase.New(position, size)
+            Me.friction = friction
         End Sub
     End Class
 End Class
