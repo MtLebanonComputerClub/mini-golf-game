@@ -3,18 +3,20 @@
     Public Property size As Size 'The size of an object, this should be the distance from the center to the edge
     Public Property image As Image 'Not entirely sure if this should be in the general class
     Public Property bounds As ArrayList 'Very general, overide this property for a specific shape, if we decide to make a ball not a cube
+    Public Property angle As Integer 'Degree measurment that tilts the object
 
     Public Sub New(position As Point, size As Size) 'This initializes the class, overide
         Me.position = position
         Me.size = size
         Me.bounds = New ArrayList()
+        Me.angle = 0
 
         generateBounds()
     End Sub
 
     Public Sub generateBounds() 'This sub finds the points (or edges) of the obstacle ToDo: Add the microsoft's included hitboxes to the mix
-        Dim xincrement As Array = {-Me.size.Width, -Me.size.Width, Me.size.Width, Me.size.Width}
-        Dim yincrement As Array = {-Me.size.Height, Me.size.Height, Me.size.Height, -Me.size.Height}
+        Dim xincrement As Array = {Me.size.Width * Math.Cos(Me.angle), Me.size.Height * Math.Cos(180 - Me.angle), -Me.size.Width * Math.Cos(Me.angle), -Me.size.Height * Math.Cos(180 - Me.angle)}
+        Dim yincrement As Array = {Me.size.Width * Math.Sin(Me.angle), Me.size.Height * Math.Sin(180 - Me.angle), -Me.size.Width * Math.Sin(Me.angle), -Me.size.Height * Math.Sin(180 - Me.angle)}
 
         For i As Integer = 0 To 3
             Dim xvalue As Integer
@@ -25,6 +27,15 @@
             Me.bounds.Add(New Point(xvalue, yvalue))
         Next
     End Sub
+
+    Public Sub rotate(angle As Integer)
+        Me.angle = angle
+        Me.generateBounds()
+    End Sub
+
+    Public Function distance(point1 As Point, point2 As Point) As Decimal 'Returns the distance between two objects (will remove from this object)
+        Return Math.Sqrt(Math.Pow((point2.X - point1.X), 2) + Math.Pow((point2.Y - point1.Y), 2))
+    End Function
 End Class
 
 Public Class Obstacle
@@ -69,7 +80,7 @@ Public Class Hole
     End Sub
 End Class
 
-Public Class Ball 'The class for the golf ball (yeah)
+Public Class Ball 'The class for the golf bal
     Inherits Course_Item
     Dim player As String
     Dim player_number As Integer
