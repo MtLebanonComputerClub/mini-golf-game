@@ -13,8 +13,8 @@
 
         generateBounds()
     End Sub
-
-    Public Sub generateBounds() 'This sub finds the points (or edges) of the obstacle ToDo: Add the microsoft's included hitboxes to the mix
+    'DO NOT USE THIS METHOD!  It has never been tested and probably doesn't work :)
+    Public Sub generateSkewedBounds() 'This sub finds the points (or edges) of the obstacle ToDo: Add the microsoft's included hitboxes to the mix
         Dim xincrement As Array = {Me.size.Width * Math.Cos(Me.angle), Me.size.Height * Math.Cos(180 - Me.angle), -Me.size.Width * Math.Cos(Me.angle), -Me.size.Height * Math.Cos(180 - Me.angle)}
         Dim yincrement As Array = {Me.size.Width * Math.Sin(Me.angle), Me.size.Height * Math.Sin(180 - Me.angle), -Me.size.Width * Math.Sin(Me.angle), -Me.size.Height * Math.Sin(180 - Me.angle)}
 
@@ -25,6 +25,15 @@
             yvalue = Me.position.Y + yincrement(i)
 
             Me.bounds.Add(New Point(xvalue, yvalue))
+        Next
+    End Sub
+
+    Public Sub generateBounds()
+        Dim xIncrement As Array = {Me.size.Width, Me.size.Width, -Me.size.Width, -Me.size.Width}
+        Dim yIncrement As Array = {Me.size.Height, -Me.size.Height, Me.size.Height, -Me.size.Height}
+
+        For i As Integer = 0 To 3
+            Me.bounds.Add(New Point(Me.position.X + xIncrement(i), Me.position.Y + yIncrement(i)))
         Next
     End Sub
 
