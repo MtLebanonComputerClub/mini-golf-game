@@ -14,7 +14,7 @@
         generateBounds()
     End Sub
     'DO NOT USE THIS METHOD!  It has never been tested and probably doesn't work :)
-    Public Sub generateSkewedBounds() 'This sub finds the points (or edges) of the obstacle ToDo: Add the microsoft's included hitboxes to the mix
+    Public Sub generateSkewedBounds() 'This sub finds the points (or edges) of the obstacle
         Dim xincrement As Array = {Me.size.Width * Math.Cos(Me.angle), Me.size.Height * Math.Cos(180 - Me.angle), -Me.size.Width * Math.Cos(Me.angle), -Me.size.Height * Math.Cos(180 - Me.angle)}
         Dim yincrement As Array = {Me.size.Width * Math.Sin(Me.angle), Me.size.Height * Math.Sin(180 - Me.angle), -Me.size.Width * Math.Sin(Me.angle), -Me.size.Height * Math.Sin(180 - Me.angle)}
 
@@ -28,9 +28,11 @@
         Next
     End Sub
 
-    Public Sub generateBounds()
-        Dim xIncrement As Array = {Me.size.Width, Me.size.Width, -Me.size.Width, -Me.size.Width}
-        Dim yIncrement As Array = {Me.size.Height, -Me.size.Height, Me.size.Height, -Me.size.Height}
+    Public Sub generateBounds() 'TODO: Eliminate the extra "/2"s
+        Dim height As Double = Me.size.Height / 2
+        Dim width As Double = Me.size.Width / 2
+        Dim xIncrement As Array = {width, width, -width, -width}
+        Dim yIncrement As Array = {height, -height, height, -height}
 
         For i As Integer = 0 To 3
             Me.bounds.Add(New Point(Me.position.X + xIncrement(i), Me.position.Y + yIncrement(i)))
