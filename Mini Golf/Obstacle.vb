@@ -1,7 +1,7 @@
 ﻿Public Class Course_Item
     Public Property position As Point 'The point of the center of the object
     Public Property size As Size 'The size of an object, this should be the distance from the center to the edge
-    Public Property image As Image 'Not entirely sure if this should be in the general class
+    Public Property graphic As Image 'Not entirely sure if this should be in the general class
     Public Property bounds As ArrayList 'Very general, overide this property for a specific shape, if we decide to make a ball not a cube
     Public Property angle As Integer 'Degree measurment that tilts the object
 
@@ -13,7 +13,12 @@
 
         generateBounds()
     End Sub
-    'DO NOT USE THIS METHOD!  It has never been tested and probably doesn't work :)
+
+    Public Sub New(x As Integer, y As Integer, size As Size) 'A different init
+        Me.New(New Point(x, y), size)
+    End Sub
+
+    'DO NOT USE THIS SUB!  It has never been tested and probably doesn't work :)
     Public Sub generateSkewedBounds() 'This sub finds the points (or edges) of the obstacle
         Dim xincrement As Array = {Me.size.Width * Math.Cos(Me.angle), Me.size.Height * Math.Cos(180 - Me.angle), -Me.size.Width * Math.Cos(Me.angle), -Me.size.Height * Math.Cos(180 - Me.angle)}
         Dim yincrement As Array = {Me.size.Width * Math.Sin(Me.angle), Me.size.Height * Math.Sin(180 - Me.angle), -Me.size.Width * Math.Sin(Me.angle), -Me.size.Height * Math.Sin(180 - Me.angle)}
@@ -41,8 +46,17 @@
 
     Public Sub rotate(angle As Integer)
         Me.angle = angle
-        Me.generateBounds()
+        Me.generateSkewedBounds()
     End Sub
+
+    Public Sub moveToAbsolutePosition(x As Integer, y As Integer)
+        Me.position = New Point(x, y)
+    End Sub
+
+    Public Sub moveByIncrements(xIncrement As Integer, yIncrement As Integer)
+        Me.position = New Point(Me.position.X + xIncrement, Me.position.Y + yIncrement)
+    End Sub
+
 
     Public Function distance(point1 As Point, point2 As Point) As Decimal 'Returns the distance between two objects (will remove from this object)
         Return Math.Sqrt(Math.Pow((point2.X - point1.X), 2) + Math.Pow((point2.Y - point1.Y), 2))
@@ -51,8 +65,9 @@ End Class
 
 Public Class Obstacle
     Inherits Course_Item
-    Dim bouciness As Decimal 'Maybe use this value later
-    Dim soundFilePath As String 'The path of the sound file to be played when the ball hits the obstacle
+    Public Overloads Property graphic As Rectangle 'The actual drawing shape of the obstacle
+    Public Property bouciness As Decimal 'Maybe use this value later
+    Public Property soundFilePath As String 'The path of the sound file to be played when the ball hits the obstacle
 
     Public Sub New(position As Point, size As Size)
         MyBase.New(position, size)
@@ -70,7 +85,7 @@ End Class
 
 Public Class Circular_Obstacle 'For the future, disregard this for the time being.  This is also for the hole or a circular item on the board
     Inherits Course_Item
-    Dim radius As Decimal
+    Public Property radius As Double
 
     Public Sub New(position As Point, size As Size)
         MyBase.New(position, size)
@@ -79,19 +94,18 @@ End Class
 
 Public Class Hole
     Inherits Circular_Obstacle
-    Dim radius As Decimal
 
     Public Sub New(position As Point, size As Size)
         MyBase.New(position, size)
         Me.radius = Me.size.Width 'Or the height, both are the same
     End Sub
 
-    Public Overloads Sub generateBounds()
+    Public Overloads Sub generateBounds() 'TODO: Decide if we will use a square hitbox or make it circular
 
     End Sub
 End Class
 
-Public Class Ball 'The class for the golf bal
+Public Class Ball 'The class for the golf ball 
     Inherits Course_Item
     Dim player As String
     Dim player_number As Integer
