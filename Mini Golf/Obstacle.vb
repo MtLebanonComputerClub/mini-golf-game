@@ -71,6 +71,7 @@ Public Class Obstacle
 
     Public Sub New(position As Point, size As Size)
         MyBase.New(position, size)
+        graphic = New Rectangle(Me.position, Me.size)
     End Sub
 
     Public Function playSound() As Boolean

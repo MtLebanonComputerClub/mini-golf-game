@@ -8,3 +8,13 @@ C:\Users\Ryan\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.vbpr
 C:\Users\Ryan\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.exe
 C:\Users\Ryan\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.xml
 C:\Users\Ryan\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.pdb
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.exe.config
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.exe
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.xml
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.pdb
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.exe
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.pdb
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\bin\Debug\Mini Golf.xml
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini_Golf.MiniGolf.resources
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini_Golf.Resources.resources
+C:\Users\rstentz88\Documents\GitHub\mini-golf-game\Mini Golf\obj\Debug\Mini Golf.vbproj.GenerateResource.Cache
