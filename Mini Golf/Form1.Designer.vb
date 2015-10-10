@@ -37,6 +37,9 @@ Partial Class MiniGolf
         Me.Title.TabIndex = 0
         Me.Title.Text = "Mini Golf"
         '
+        'tmrTest
+        '
+        '
         'btnDraw
         '
         Me.btnDraw.Cursor = System.Windows.Forms.Cursors.Default

@@ -33,7 +33,7 @@
         Next
     End Sub
 
-    Public Sub generateBounds() 'TODO: Eliminate the extra "/2"s
+    Public Sub generateBounds()
         Dim height As Double = Me.size.Height / 2
         Dim width As Double = Me.size.Width / 2
         Dim xIncrement As Array = {width, width, -width, -width}
@@ -68,10 +68,15 @@ Public Class Obstacle
     Public Overloads Property graphic As Rectangle 'The actual drawing shape of the obstacle
     Public Property bouciness As Decimal 'Maybe use this value later
     Public Property soundFilePath As String 'The path of the sound file to be played when the ball hits the obstacle
+    Public Property color As Color
 
     Public Sub New(position As Point, size As Size)
         MyBase.New(position, size)
         graphic = New Rectangle(Me.position, Me.size)
+    End Sub
+
+    Public Sub Draw(graphics As Graphics)
+        graphics.FillRectangle(New SolidBrush(Me.color), Me.graphic)
     End Sub
 
     Public Function playSound() As Boolean
@@ -86,18 +91,24 @@ End Class
 
 Public Class Circular_Obstacle 'For the future, disregard this for the time being.  This is also for the hole or a circular item on the board
     Inherits Course_Item
-    Public Property radius As Double
+    Public Property radius As Integer
+    Public Property color As Color
 
-    Public Sub New(position As Point, size As Size)
-        MyBase.New(position, size)
+    Public Sub New(position As Point, radius As Integer)
+        MyBase.New(position, New Size(radius, radius)) 'Might not want to call the super constructor here
+        Me.radius = radius
+    End Sub
+
+    Public Sub Draw(graphics As Graphics)
+        graphics.FillEllipse(New SolidBrush(Me.color), Me.position.X, Me.position.Y, Me.radius, Me.radius)
     End Sub
 End Class
 
 Public Class Hole
     Inherits Circular_Obstacle
 
-    Public Sub New(position As Point, size As Size)
-        MyBase.New(position, size)
+    Public Sub New(position As Point, radius As Integer)
+        MyBase.New(position, radius)
         Me.radius = Me.size.Width 'Or the height, both are the same
     End Sub
 
@@ -108,11 +119,13 @@ End Class
 
 Public Class Ball 'The class for the golf ball 
     Inherits Course_Item
-    Dim player As String
-    Dim player_number As Integer
 
-    Public Sub New(position As Point, size As Size)
-        MyBase.New(position, size)
+    Public Property radius As Integer
+    Public Property player As String
+    Public Property player_number As Integer
+
+    Public Sub New(position As Point, radius As Integer)
+        MyBase.New(position, New Size(radius, radius))
     End Sub
 
 End Class
