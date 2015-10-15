@@ -1,5 +1,7 @@
 ﻿
 Imports Mini_Golf.Obstacle
+Imports Mini_Golf.ObstacleTests
+
 Public Class MiniGolf 'Title Screen
     Public Property graphics As Graphics
     Private Sub MiniGolf_Load(sender As Object, e As EventArgs) Handles MyBase.Load

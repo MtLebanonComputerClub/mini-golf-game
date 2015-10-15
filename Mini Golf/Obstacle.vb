@@ -1,5 +1,10 @@
-﻿Public Class Course_Item
-    Public Property position As Point 'The point of the center of the object
+﻿Public Class Velocity
+    Public Property X
+    Public Property Y
+End Class
+
+Public Class Course_Item
+    Public Property position As Point 'The position of the object
     Public Property size As Size 'The size of an object, this should be the distance from the center to the edge
     Public Property graphic As Image 'Not entirely sure if this should be in the general class
     Public Property bounds As ArrayList 'Very general, overide this property for a specific shape, if we decide to make a ball not a cube
@@ -63,7 +68,7 @@
     End Function
 End Class
 
-Public Class Obstacle
+Public Class Obstacle 'The obstacle position represents the top left corner of the rectangle
     Inherits Course_Item
     Public Overloads Property graphic As Rectangle 'The actual drawing shape of the obstacle
     Public Property bouciness As Decimal 'Maybe use this value later
@@ -100,7 +105,7 @@ Public Class Circular_Obstacle 'For the future, disregard this for the time bein
     End Sub
 
     Public Sub Draw(graphics As Graphics)
-        graphics.FillEllipse(New SolidBrush(Me.color), Me.position.X, Me.position.Y, Me.radius, Me.radius)
+        graphics.FillEllipse(New SolidBrush(Me.color), Me.position.X - radius, Me.position.Y - radius, Me.radius, Me.radius)
     End Sub
 End Class
 
@@ -121,6 +126,7 @@ Public Class Ball 'The class for the golf ball
     Inherits Course_Item
 
     Public Property radius As Integer
+    Public Property velocity As Velocity
     Public Property player As String
     Public Property player_number As Integer
 
