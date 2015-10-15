@@ -1,6 +1,6 @@
 ﻿Public Class Velocity
-    Public Property X
-    Public Property Y
+    Public Property X As Double
+    Public Property Y As Double
 End Class
 
 Public Class Course_Item
