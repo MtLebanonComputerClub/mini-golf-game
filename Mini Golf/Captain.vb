@@ -1,10 +1,10 @@
 ﻿Public Class Captain
-    Dim balls As ArrayList 'Make these private 
-    Dim walls As ArrayList
-    Dim surfaces As ArrayList
-    Dim holes As ArrayList
+    Private Property balls As ArrayList 'The list that contains all the balls
+    Private Property walls As ArrayList 'Contains all the walls (regular obstacles)
+    Private Property surfaces As ArrayList 'Contains all the surfaces
+    Private Property holes As ArrayList 'Contains all the holes
 
-    Dim path As ArrayList 'Ask James about changing this
+    Dim path As ArrayList
 
     Public Sub findNear(ball As Label)
         'Check all surroudings and call proper physics functions

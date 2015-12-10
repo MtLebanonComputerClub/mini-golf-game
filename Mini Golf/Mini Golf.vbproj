@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Captain.vb" />
+    <Compile Include="Course Items.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

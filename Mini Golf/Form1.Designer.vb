@@ -25,6 +25,7 @@ Partial Class MiniGolf
         Me.components = New System.ComponentModel.Container()
         Me.Title = New System.Windows.Forms.Label()
         Me.tmrTest = New System.Windows.Forms.Timer(Me.components)
+        Me.btnDraw = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Title
@@ -39,11 +40,22 @@ Partial Class MiniGolf
         'tmrTest
         '
         '
+        'btnDraw
+        '
+        Me.btnDraw.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnDraw.Location = New System.Drawing.Point(33, 389)
+        Me.btnDraw.Name = "btnDraw"
+        Me.btnDraw.Size = New System.Drawing.Size(75, 23)
+        Me.btnDraw.TabIndex = 1
+        Me.btnDraw.Text = "Draw"
+        Me.btnDraw.UseVisualStyleBackColor = True
+        '
         'MiniGolf
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(611, 436)
+        Me.Controls.Add(Me.btnDraw)
         Me.Controls.Add(Me.Title)
         Me.Name = "MiniGolf"
         Me.Text = "Mini Golf"
@@ -53,5 +65,6 @@ Partial Class MiniGolf
     End Sub
     Friend WithEvents Title As System.Windows.Forms.Label
     Friend WithEvents tmrTest As System.Windows.Forms.Timer
+    Friend WithEvents btnDraw As System.Windows.Forms.Button
 
 End Class
