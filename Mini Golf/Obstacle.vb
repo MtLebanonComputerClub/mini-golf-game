@@ -68,6 +68,16 @@ Public Class Course_Item
     End Function
 End Class
 
+Public Class Surface
+    Inherits Course_Item
+    Public Property friction As Double
+
+    Public Sub New(position As Point, size As Size, friction As Double)
+        MyBase.New(position, size)
+        Me.friction = friction
+    End Sub
+End Class
+
 Public Class Obstacle 'The obstacle position represents the top left corner of the rectangle
     Inherits Course_Item
     Public Overloads Property graphic As Rectangle 'The actual drawing shape of the obstacle
